@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#171a28">
+  <meta name="description" content="Discover creative events, experiences and unforgettable moments with Verve — a front-end event booking portfolio demo.">
+  <title>Verve — Find your next favourite thing.</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="events.js"></script>
+  <script defer src="app.js"></script>
+  <script defer src="icons.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="announcement"><span><i class="fa-solid fa-sparkles" aria-hidden="true"></i> Make room for something memorable.</span> <span class="announcement-right">An interactive portfolio demonstration <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span></div>
+  <header class="site-header">
+    <div class="shell nav-shell">
+      <a class="brand" href="#top" aria-label="Verve home" data-nav="home"><span class="brand-icon" aria-hidden="true"><i class="fa-solid fa-asterisk"></i></span>verve<span class="brand-period">.</span></a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a class="nav-active" href="#discover" data-nav="explore">Discover</a>
+        <a href="#how-it-works" data-nav="how">How it works</a>
+        <button type="button" class="nav-button" data-nav="tickets">My tickets <span class="ticket-count" id="navTicketCount" hidden>0</span></button>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-button favourites-jump" id="showSaved" type="button" aria-label="Show saved events"><i class="fa-regular fa-heart" aria-hidden="true"></i></button>
+        <button class="btn btn-dark btn-sm" id="createEventTop" type="button"><i class="fa-solid fa-plus" aria-hidden="true"></i><span>Host an event</span></button>
+        <button class="icon-button mobile-menu-toggle" id="mobileMenuBtn" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu" type="button"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" hidden>
+      <a href="#discover" data-nav="explore">Discover events</a>
+      <a href="#how-it-works" data-nav="how">How it works</a>
+      <button type="button" data-nav="tickets">My tickets</button>
+      <button type="button" data-nav="saved">Saved events</button>
+      <button type="button" data-nav="host">Host an event</button>
+    </nav>
+  </header>
+  <main id="main">
+    <div id="discoverView">
+      <section class="hero" id="top">
+        <div class="shell hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow eyebrow-light"><span class="eyebrow-dot"></span> YOUR CITY. YOUR PEOPLE. YOUR NEXT STORY.</div>
+            <h1>Less scrolling.<br><span class="underlined-word">More living.</span></h1>
+            <p class="hero-description">The best memories don't happen in your feed. Find live music, workshops, good food and the kind of plans you'll actually look forward to.</p>
+            <div class="hero-search" role="search" aria-label="Find events">
+              <label class="hero-field"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><span class="sr-only">Search events</span><input type="search" id="heroSearch" placeholder="Event, artist or activity…" autocomplete="off"></label>
+              <span class="hero-search-divider" aria-hidden="true"></span>
+              <label class="hero-field city-field"><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span class="sr-only">City</span><select id="heroCity"><option value="all">All cities</option></select></label>
+              <button type="button" class="btn btn-coral hero-search-button" id="heroSearchBtn">Explore <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+            </div>
+            <div class="hero-note"><span class="avatars" aria-hidden="true"><span>✳</span><span>✦</span><span>✺</span></span><span><strong>12 inspiring demo events</strong><br>One place to explore them all</span></div>
+          </div>
+          <div class="hero-art" aria-label="Collage of event photographs">
+            <div class="hero-blob" aria-hidden="true"></div>
+            <div class="hero-photo hero-photo-main"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=960&q=86" alt="Colourful live music event" data-event-image="sounds-like-saturday"></div>
+            <div class="hero-photo hero-photo-top"><img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=680&q=80" alt="People enjoying a creative event" data-event-image="future-makers"></div>
+            <div class="hero-photo hero-photo-bottom"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=680&q=80" alt="Warm and welcoming dining space" data-event-image="sunday-table"></div>
+            <div class="floating-note"><span><i class="fa-solid fa-bolt" aria-hidden="true"></i></span><div><strong>Good times ahead</strong><small>Collect moments, not tabs.</small></div></div>
+            <div class="hero-doodle" aria-hidden="true">✳</div>
+          </div>
+        </div>
+        <div class="hero-bottom-ribbon" aria-hidden="true">OUT OF THE ORDINARY <span>✳</span> RIGHT AROUND THE CORNER <span>✳</span> OUT OF THE ORDINARY <span>✳</span> RIGHT AROUND THE CORNER</div>
+      </section>
+      <section class="categories-section shell" aria-labelledby="category-heading">
+        <div class="section-topline"><span class="section-kicker">FIND YOUR THING</span><span class="section-micro">Something for every kind of mood <i class="fa-solid fa-arrow-turn-down" aria-hidden="true"></i></span></div>
+        <h2 id="category-heading" class="section-heading">What are you <em>in the mood</em> for?</h2>
+        <div class="category-grid" id="categoryGrid"></div>
+      </section>
+      <section class="featured-section" aria-labelledby="featured-heading">
+        <div class="shell">
+          <div class="section-topline"><span class="section-kicker">THE EDITOR'S PICKS</span><span class="section-micro">A little inspiration for your calendar</span></div>
+          <div class="heading-line"><div><h2 id="featured-heading" class="section-heading">Worth making <em>plans</em> for.</h2><p class="section-description">For the stories you'll tell afterwards.</p></div><a href="#discover" class="text-link">See all events <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+          <div class="featured-grid" id="featuredGrid"></div>
+        </div>
+      </section>
+      <section class="explore-section shell" id="discover" aria-labelledby="explore-heading">
+        <div class="section-topline"><span class="section-kicker">EXPLORE ALL EVENTS</span><span class="section-micro">Handpicked moments, built for exploring</span></div>
+        <div class="heading-line explore-heading-line"><div><h2 id="explore-heading" class="section-heading">Discover your <em>next favourite.</em></h2><p class="section-description">A little bit of everything, all in one place.</p></div><div class="view-picker" role="group" aria-label="Switch event view"><button id="gridViewBtn" class="view-btn active" aria-pressed="true" type="button" aria-label="Grid view"><i class="fa-solid fa-border-all" aria-hidden="true"></i></button><button id="calendarViewBtn" class="view-btn" aria-pressed="false" type="button" aria-label="Calendar view"><i class="fa-regular fa-calendar-days" aria-hidden="true"></i></button></div></div>
+        <div class="filter-card">
+          <div class="filter-row-main"><label class="filter-search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><span class="sr-only">Search all events</span><input type="search" id="searchInput" placeholder="Search events, locations, interests…" autocomplete="off"></label><label class="select-holder"><span class="sr-only">Filter by city</span><i class="fa-solid fa-location-dot" aria-hidden="true"></i><select id="citySelect"><option value="all">All cities</option></select></label><label class="select-holder"><span class="sr-only">Filter by date</span><i class="fa-regular fa-calendar" aria-hidden="true"></i><select id="dateSelect"><option value="all">Any date</option><option value="30">Next 30 days</option><option value="weekend">Weekends</option><option value="month">This month</option></select></label><label class="select-holder sort-holder"><span class="sr-only">Sort events</span><i class="fa-solid fa-arrow-down-wide-short" aria-hidden="true"></i><select id="sortSelect"><option value="soonest">Soonest first</option><option value="priceLow">Price: low to high</option><option value="priceHigh">Price: high to low</option><option value="newest">Recently added</option></select></label></div>
+          <div class="filter-row-secondary"><div class="filter-pills" id="filterPills" aria-label="Filter by event category"></div><button type="button" class="clear-filter" id="clearFilters">Reset filters <i class="fa-solid fa-rotate-left" aria-hidden="true"></i></button></div>
+        </div>
+        <div class="result-line"><p id="resultCount" aria-live="polite"></p><button class="saved-filter" id="savedOnlyBtn" type="button" aria-pressed="false"><i class="fa-regular fa-heart" aria-hidden="true"></i> Saved only</button></div>
+        <div id="eventResults" class="event-grid"></div>
+        <div id="calendarResults" hidden class="calendar-shell"></div>
+        <div id="emptyResults" class="empty-state" hidden><div class="empty-icon"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></div><h3>No events found. Yet.</h3><p>Try a different search or clear your filters to see more experiences.</p><button type="button" class="btn btn-dark" id="emptyReset">Clear filters</button></div>
+        <div class="load-more-wrap" id="loadMoreWrap"><button type="button" class="btn btn-outline" id="loadMore">Show more events <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></button></div>
+      </section>
+      <section class="how-section" id="how-it-works" aria-labelledby="how-heading"><div class="shell how-grid"><div class="how-intro"><span class="section-kicker">SIMPLE AS IT SHOULD BE</span><h2 id="how-heading" class="section-heading">The fun starts<br><em>right here.</em></h2><p>Less planning stress. More actually showing up.</p><button type="button" id="howExplore" class="btn btn-dark">Explore events <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div><div class="steps"><div class="step"><div class="step-number">01</div><div><h3>Find your people</h3><p>Browse experiences by interest, city and date. Save the ones that catch your eye.</p></div><i class="fa-solid fa-compass" aria-hidden="true"></i></div><div class="step"><div class="step-number">02</div><div><h3>Pick your place</h3><p>Explore the details, choose a ticket type and reserve your spot in a few clicks.</p></div><i class="fa-solid fa-ticket" aria-hidden="true"></i></div><div class="step"><div class="step-number">03</div><div><h3>Make memories</h3><p>Find your demo reservation in My Tickets and add the date to your calendar.</p></div><i class="fa-solid fa-heart" aria-hidden="true"></i></div></div></div></section>
+      <section class="host-cta"><div class="shell host-cta-inner"><div><span class="eyebrow eyebrow-light"><span class="eyebrow-dot"></span> HAVE SOMETHING GOOD IN MIND?</span><h2>Bring people <em>together.</em></h2><p>Create an event and see it appear in the catalogue. This is a local demo — no events go live publicly.</p></div><button type="button" id="createEventBottom" class="btn btn-coral">Create an event <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><div class="host-cta-star" aria-hidden="true">✳</div></div></section>
+    </div>
+    <section class="tickets-page shell" id="ticketsView" hidden aria-labelledby="ticketsHeading"><div class="tickets-heading-row"><div><span class="section-kicker">YOUR UPCOMING MOMENTS</span><h1 id="ticketsHeading" class="section-heading">My <em>tickets.</em></h1><p>Every good plan, all in one place. Reservations here are for demo purposes only.</p></div><button type="button" class="btn btn-outline" id="backToExplore"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to events</button></div><div id="ticketsList"></div></section>
+  </main>
+  <footer class="site-footer"><div class="shell"><div class="footer-top"><div class="footer-brand-block"><a class="brand brand-footer" href="#top" data-nav="home"><span class="brand-icon" aria-hidden="true"><i class="fa-solid fa-asterisk"></i></span>verve<span class="brand-period">.</span></a><p>Good things happen when you show up.</p></div><div class="footer-links"><div><strong>Explore</strong><a href="#discover" data-nav="explore">All events</a><a href="#how-it-works" data-nav="how">How it works</a></div><div><strong>Your space</strong><button type="button" data-nav="tickets">My tickets</button><button type="button" data-nav="host">Host an event</button></div></div></div><div class="footer-bottom"><p>© <span id="year"></span> Verve. Made as a front-end portfolio demo.</p><p><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Fictional events. No real payments or tickets.</p></div></div></footer>
+  <dialog class="dialog event-dialog" id="eventDialog" aria-labelledby="detailTitle"><div class="dialog-container"><button type="button" class="dialog-close" data-close="eventDialog" aria-label="Close event details"><i class="fa-solid fa-xmark"></i></button><div id="eventDialogContent"></div></div></dialog>
+  <dialog class="dialog booking-dialog" id="bookingDialog" aria-labelledby="bookingTitle"><div class="dialog-container"><button type="button" class="dialog-close" data-close="bookingDialog" aria-label="Close booking"><i class="fa-solid fa-xmark"></i></button><div id="bookingContent"></div></div></dialog>
+  <dialog class="dialog host-dialog" id="hostDialog" aria-labelledby="hostTitle"><div class="dialog-container"><button type="button" class="dialog-close" data-close="hostDialog" aria-label="Close create event"><i class="fa-solid fa-xmark"></i></button><div class="modal-heading"><span class="section-kicker">THE NEXT GREAT THING</span><h2 id="hostTitle">Host your own event.</h2><p>Try creating an event. In the static demo it is saved only in this browser.</p></div><form id="hostForm"><div class="form-grid"><label class="form-label span-two">Event name <input name="title" maxlength="80" required placeholder="e.g. Creative Coffee Morning"></label><label class="form-label">Category <select name="category" required><option value="">Choose category</option><option>Music</option><option>Arts</option><option>Tech</option><option>Food</option><option>Wellness</option><option>Outdoors</option></select></label><label class="form-label">City <input name="city" maxlength="50" required placeholder="e.g. Dundee"></label><label class="form-label">Date and time <input name="date" type="datetime-local" required></label><label class="form-label">Venue <input name="venue" maxlength="90" required placeholder="e.g. The Studio"></label><label class="form-label">Ticket price (£) <input name="price" type="number" min="0" max="500" step="0.01" value="0" required></label><label class="form-label">Available places <input name="capacity" type="number" min="1" max="1000" step="1" value="40" required></label><label class="form-label span-two">Short event description <textarea name="description" maxlength="350" rows="3" required placeholder="What makes your event special?"></textarea></label><label class="form-label span-two">Photo URL (optional) <input name="image" type="url" placeholder="https://images.unsplash.com/..."><small>Leave blank for a colourful event illustration.</small></label></div><div id="hostError" class="form-error" role="alert" hidden></div><button type="submit" class="btn btn-coral btn-full">Create demo event <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></form></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
